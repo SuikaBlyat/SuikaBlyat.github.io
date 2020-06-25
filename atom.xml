@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://suikablyat.xyz/"/>
-  <updated>2020-06-25T13:56:47.188Z</updated>
+  <updated>2020-06-25T16:01:36.048Z</updated>
   <id>https://suikablyat.xyz/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>hello world</title>
-    <link href="https://suikablyat.xyz/2020/02/16/sort-algorithms/"/>
-    <id>https://suikablyat.xyz/2020/02/16/sort-algorithms/</id>
-    <published>2020-02-16T07:09:23.000Z</published>
-    <updated>2020-06-25T13:56:47.188Z</updated>
+    <link href="https://suikablyat.xyz/2020/06/25/sort-algorithms/"/>
+    <id>https://suikablyat.xyz/2020/06/25/sort-algorithms/</id>
+    <published>2020-06-25T07:09:23.000Z</published>
+    <updated>2020-06-25T16:01:36.048Z</updated>
     
     <summary type="html">
     
@@ -30,7 +30,7 @@
         
         
           &lt;blockquote&gt;
-&lt;p&gt;爬爬爬爬爬&lt;/p&gt;
+&lt;p&gt;看什么看，爬爬爬爬爬&lt;/p&gt;
 &lt;/blockquote&gt;
 
         
@@ -38,12 +38,10 @@
     
     </summary>
     
-      <category term="给爷爬" scheme="https://suikablyat.xyz/categories/%E7%BB%99%E7%88%B7%E7%88%AC/"/>
+      <category term="test" scheme="https://suikablyat.xyz/categories/test/"/>
     
     
-      <category term="leetcode" scheme="https://suikablyat.xyz/tags/leetcode/"/>
-    
-      <category term="算法" scheme="https://suikablyat.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="test" scheme="https://suikablyat.xyz/tags/test/"/>
     
   </entry>
   
