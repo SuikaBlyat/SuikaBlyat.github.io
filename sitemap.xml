@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://suikablyat.xyz/contact/index.html</loc>
-    
-    <lastmod>2020-06-25T16:56:40.380Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://suikablyat.xyz/about/index.html</loc>
     
-    <lastmod>2020-06-25T16:33:29.605Z</lastmod>
+    <lastmod>2020-06-26T03:07:33.402Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://suikablyat.xyz/2020/06/25/sort-algorithms/</loc>
     
-    <lastmod>2020-06-25T16:31:17.575Z</lastmod>
+    <lastmod>2020-06-26T02:48:37.677Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://suikablyat.xyz/contact/index.html</loc>
+    
+    <lastmod>2020-06-25T16:56:40.380Z</lastmod>
     
   </url>
   
@@ -37,6 +37,13 @@
   </url>
   
   <url>
+    <loc>https://suikablyat.xyz/archives/index.html</loc>
+    
+    <lastmod>2020-04-05T02:43:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://suikablyat.xyz/categories/index.html</loc>
     
     <lastmod>2020-04-05T02:43:43.000Z</lastmod>
@@ -45,13 +52,6 @@
   
   <url>
     <loc>https://suikablyat.xyz/tags/index.html</loc>
-    
-    <lastmod>2020-04-05T02:43:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://suikablyat.xyz/archives/index.html</loc>
     
     <lastmod>2020-04-05T02:43:43.000Z</lastmod>
     
