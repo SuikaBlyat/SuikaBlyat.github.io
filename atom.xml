@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://suikablyat.xyz/"/>
-  <updated>2020-06-27T12:12:59.964Z</updated>
+  <updated>2020-06-28T17:09:02.103Z</updated>
   <id>https://suikablyat.xyz/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>The Beginning of DDL Fighter</title>
-    <link href="https://suikablyat.xyz/2020/06/25/sort-algorithms/"/>
-    <id>https://suikablyat.xyz/2020/06/25/sort-algorithms/</id>
+    <title>tesy</title>
+    <link href="https://suikablyat.xyz/test/"/>
+    <id>https://suikablyat.xyz/test/</id>
     <published>2020-06-25T07:09:23.000Z</published>
-    <updated>2020-06-27T12:12:59.964Z</updated>
+    <updated>2020-06-28T17:09:02.103Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;test&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+      <category term="test" scheme="https://suikablyat.xyz/categories/test/"/>
+    
+    
+      <category term="test" scheme="https://suikablyat.xyz/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Beginning of DDL Fighter</title>
+    <link href="https://suikablyat.xyz/sort-algorithms/"/>
+    <id>https://suikablyat.xyz/sort-algorithms/</id>
+    <published>2020-06-25T07:09:23.000Z</published>
+    <updated>2020-06-28T17:03:46.768Z</updated>
     
     <summary type="html">
     

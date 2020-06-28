@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://suikablyat.xyz/2020/06/25/sort-algorithms/</loc>
+    <loc>https://suikablyat.xyz/test/</loc>
     
-    <lastmod>2020-06-27T12:12:59.964Z</lastmod>
+    <lastmod>2020-06-28T17:09:02.103Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://suikablyat.xyz/sort-algorithms/</loc>
+    
+    <lastmod>2020-06-28T17:03:46.768Z</lastmod>
     
   </url>
   
