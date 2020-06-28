@@ -4,23 +4,25 @@
   
     
     <entry>
-      <title>tesy</title>
-      <link href="/test/"/>
-      <url>/test/</url>
+      <title>Source of Happyness</title>
+      <link href="/my-source-of-happyness/"/>
+      <url>/my-source-of-happyness/</url>
       
-        <content type="html"><![CDATA[<p>test</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>科普一下三种快乐物质————多巴胺、血清素、内啡肽。</p></blockquote><p><b>多巴胺</b>，能带来短暂愉悦；</p><p><b>血清素</b>，能帮人放松心情缓解焦虑；</p><p><b>内啡肽</b>，可以改变一个人所有的负面情绪、改变对自我的认知、变得积极向上，甚至可以改变人的外表。</p><p>三种物质中，内啡肽带来的快乐最持久、最真实、最有意义，但同时它也是最需要付出努力的。</p><p>那么如何刺激增加内啡肽呢？比如慢跑时突破自己的运动极限、爬上山顶看到远处的风景、久别之后又见到心爱的人、期待的事情变成现实，比如聊八卦、吃美食、养宠物、听音乐。</p><p>内啡肽很吝啬，希望你每一次感到快乐都是内啡肽带来的。</p><p><b><s><font color="#DC143C">另外科普一下我的主要快乐物质：钱</font></s></b></p>]]></content>
       
       
       <categories>
           
-          <category> test </category>
+          <category> Junkpiece </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> test </tag>
+            <tag> Life </tag>
+            
+            <tag> Happyness </tag>
             
         </tags>
       
