@@ -4,15 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="The Beginning of DDL Fighter, UM FIC15">
+    <meta name="keywords" content="知乎专栏爬虫 2020.07.11, UM FIC15">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="
-拖延有感
+新手爬虫初体验
 
-很喜欢狄更斯在《挪威的森林》里说的一句话：“一个人是不是DDL Fighter从他小学怎么做暑假作业就已经决定了。”
-">
+#前言因为是疫情期间在加里敦大学学的Python,代码可能不规范，功能也只是比较基础或者说原始的，但尚且能用hhhh
+在此发表一来是记录一下自己的学习历程与成果，二来也算是抛砖引玉，若有任何疑问或者建议都可以发E-mai">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>The Beginning of DDL Fighter | SuikaBlyat</title>
+    <title>知乎专栏爬虫 2020.07.11 | SuikaBlyat</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -216,13 +216,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        The Beginning of DDL Fighter
+                        知乎专栏爬虫 2020.07.11
                     </div>
                 </div>
             </div>
@@ -333,8 +333,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/DDL-fighter/" target="_blank">
-                            <span class="chip bg-color">DDL fighter</span>
+                        <a href="/tags/Crawler/" target="_blank">
+                            <span class="chip bg-color">Crawler</span>
+                        </a>
+                        
+                        <a href="/tags/Beginner/" target="_blank">
+                            <span class="chip bg-color">Beginner</span>
                         </a>
                         
                     </div>
@@ -345,8 +349,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Junkpiece/" class="post-category" target="_blank">
-                            Junkpiece
+                        <a href="/categories/Python/" class="post-category" target="_blank">
+                            Python
                         </a>
                         
                     </div>
@@ -357,7 +361,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-06-25
+                    2020-07-11
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -373,7 +377,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>Reading Time:&nbsp;&nbsp;
-                    1 Min
+                    3 Min
                 </div>
                 
                 
@@ -390,10 +394,108 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>拖延有感</p>
+<p>新手爬虫初体验</p>
 </blockquote>
-<p>很喜欢狄更斯在《挪威的森林》里说的一句话：“一个人是不是DDL Fighter从他小学怎么做暑假作业就已经决定了。”</p>
+<p>#前言<br>因为是疫情期间在加里敦大学学的Python,代码可能不规范，功能也只是比较基础<s>或者说原始的</s>，但尚且能用hhhh</p>
+<p>在此发表一来是记录一下自己的学习历程与成果，二来也算是抛砖引玉，若有任何疑问或者建议都可以发E-mail与本彩笔交流。
+</p><p>话不多说直接上代码啦
 
+<pre><code>#import所需的各种库
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import bs4
+import time
+from openpyxl import Workbook
+import requests
+
+
+article_url_list = [] 
+article_title_list = []  #这个好像多余了，但我懒得删掉了
+pages = int(input(&#39;请输入需要爬取文章页数：&#39;))
+author = input(&#39;请输入专栏作者：&#39;)  #注意这里不是昵称，是作者的英文id哦
+headers = {
+            &#39;origin&#39;: &#39;https://zhuanlan.zhihu.com&#39;,
+            &#39;referer&#39;: &#39;https://zhuanlan.zhihu.com/{}&#39;.format(author),
+            &#39;user-agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&#39;
+}
+
+
+#这部分没封装启动函数是因为封装了之后crawler函数会发现driver undefined，我图省事就取消封装了，没有尝试__init__,反正能用就是hhh
+wb = Workbook() #创建excel工作簿
+ws = wb.active  #定义活动工作表
+ws.append([&#39;标题&#39;, &#39;简介&#39;, &#39;链接&#39;, &#39;赞同&#39;])
+print(&#39;_______\n正在启动浏览器&#39;)
+chrome_options = Options()
+chrome_options.add_argument(&#39;--headless&#39;)
+driver = webdriver.Chrome(options=chrome_options)
+driver.get(&#39;https://zhuanlan.zhihu.com/{}&#39;.format(author))  # 专栏地址
+time.sleep(2) #给点时间加载
+
+
+#封装滑动函数
+def scroll():
+    print(&#39;_______\n正在模拟Chrome下滑&#39;)
+    i = 0
+    while i &lt; pages:  # 当文章数量多时，
+        driver.execute_script(&quot;window.scrollBy(0,5000)&quot;) #滑动幅度可自行修改，5000还挺大的
+        time.sleep(1)
+        i += 1
+    print(&#39;_______\n模拟结束&#39;)
+
+
+def crawler_list():
+    print(&#39;_______\n正在爬取列表:\n&#39;)
+    res = driver.page_source
+    bs_res = bs4.BeautifulSoup(res, &#39;html.parser&#39;)
+    articles = bs_res.find_all(&#39;li&#39;, class_=&#39;ArticleItem&#39;)
+    for article in articles:
+        title = article.find_all(&#39;h3&#39;, class_=&#39;ArticleItem-Title&#39;)[0].text
+        article_url = article.find_all(&#39;a&#39;)[0][&#39;href&#39;]
+        summary = article.find(&#39;p&#39;, class_=&#39;RichContent-inner&#39;).text
+        vote = article.find(&#39;button&#39;, class_=&#39;Button VoteButton VoteButton--up&#39;)[&#39;aria-label&#39;]
+        vote = vote[2:]
+        article_url_list.append(article_url) #添加到URL列表方便下一个函数爬取文章内容
+        article_title_list.append(title) #回应开头那个多余的代码）
+        line = [title, summary, article_url, vote]
+        ws.append(line)
+        print(&#39;添加《{title}》到列表&#39;.format(title=title))
+        time.sleep(1) #可删，不过就看不到一个一个title出来了
+    print(&#39;_______\n列表爬取完毕\n&#39;)
+
+
+def crawler_article():
+    print(&#39;_______\n正在录入内容:\n&#39;)
+    for z in range(len(article_url_list)):
+        url_2= article_url_list[z]
+        r = requests.get(url_2, headers=headers)
+        bs_r = bs4.BeautifulSoup(r.text, &#39;html.parser&#39;)
+        content = bs_r.find(class_=&#39;RichText ztext Post-RichText&#39;) #需要纯文本的请在后面加.text 然后可以把下一行删掉
+        content = str(content)
+        title = bs_r.find_all(&#39;h1&#39;, class_=&#39;Post-Title&#39;)[0].text
+        title_short = title[:7] #截取纯数字
+        f = open(&#39;SourceCodes/{}.txt&#39;.format(title_short), &#39;w&#39;, encoding=&#39;utf-8&#39;)
+        f.write(content)
+        f.close()
+        print(&#39;已录入《{}》&#39;.format(title))
+
+
+def close():
+    wb.save(&#39;SumList.xlsx&#39;)
+    print(&#39;_______\n已保存文章列表&#39;) 
+    wb.close()
+    driver.close()
+    print(&#39;_______\n驱动已关闭\nExcel已关闭\n_______&#39;)
+    input(&#39;\n请输入回车结束爬虫&#39;) #不在pycharm运行时像暂时不结束脚本才加的，可删
+
+
+def main():
+    scroll()
+    crawler_list()
+    crawler_article()
+    close()
+
+
+main()</code></pre></p>
             </div>
             <hr />
 
@@ -429,9 +531,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/zhihucrawler/">
                     <div class="card-image">
@@ -449,9 +552,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -464,6 +567,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -486,19 +590,19 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/my-source-of-happyness/">
+                <a href="/ddl-fighter/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Source of Happyness">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="The Beginning of DDL Fighter">
                         
-                        <span class="card-title">Source of Happyness</span>
+                        <span class="card-title">The Beginning of DDL Fighter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            给大家介绍一下我的快乐来源
+                            拖延有感
                         
                     </div>
                     <div class="publish-info">
@@ -520,12 +624,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Life/" target="_blank">
-                        <span class="chip bg-color">Life</span>
-                    </a>
-                    
-                    <a href="/tags/Happyness/" target="_blank">
-                        <span class="chip bg-color">Happyness</span>
+                    <a href="/tags/DDL-fighter/" target="_blank">
+                        <span class="chip bg-color">DDL fighter</span>
                     </a>
                     
                 </div>
@@ -671,6 +771,25 @@
     
 
 </main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
 
     <footer class="page-footer bg-color">
