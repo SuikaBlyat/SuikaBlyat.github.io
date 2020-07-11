@@ -399,7 +399,7 @@
 </blockquote>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为是疫情期间在加里敦大学学的Python,代码可能不规范，功能也只是比较基础<s>或者说原始的</s>，但尚且能用hhhh</p>
 <p>在此发表一来是记录一下自己的学习历程与成果
-</p><p>二来也是因为在网上找了很久，包括知乎和CSDN上面的代码大都是2012-2017年的，2019往后的寥寥可数。而且拿回来我看不懂，运行报错也不知道如何解决（对的本彩笔js，os，re都还没学，还是婴儿学步阶段）
+</p><p>二来也是因为在网上找了很久，包括知乎和CSDN上面的代码大都是2012-2017年的，2019往后的寥寥可数。而且拿回来大部分我看不懂，直接运行都会报错，也不知道如何解决<s>（对的本彩笔js，os，re都还没学，还是婴儿学步阶段）</s>。不是说大佬们写的不好，只是不符合我的需要而且确实直接run都会报错hhh
 </p><p>三来算是抛砖引玉，虽然本博客未开放评论（就是懒），但若有任何疑问或者建议都欢迎发E-mail与本彩笔交流。
 
 
@@ -415,7 +415,7 @@ import requests
 article_url_list = [] 
 article_title_list = []  #这个好像多余了，但我懒得删掉了
 pages = int(input(&#39;请输入需要爬取文章页数：&#39;))
-author = input(&#39;请输入专栏作者：&#39;)  #注意这里不是昵称，是作者的英文id哦
+author = input(&#39;请输入专栏作者：&#39;)   #注意这里不是昵称，是作者的英文id哦
 headers = {
             &#39;origin&#39;: &#39;https://zhuanlan.zhihu.com&#39;,
             &#39;referer&#39;: &#39;https://zhuanlan.zhihu.com/{}&#39;.format(author),
@@ -472,10 +472,10 @@ def crawler_article():
         url_2= article_url_list[z]
         r = requests.get(url_2, headers=headers)
         bs_r = bs4.BeautifulSoup(r.text, &#39;html.parser&#39;)
-        content = bs_r.find(class_=&#39;RichText ztext Post-RichText&#39;) #需要纯文本的请在后面加.text 然后可以把下一行删掉
+        content = bs_r.find(class_=&#39;RichText ztext Post-RichText&#39;)   #需要纯文本的请在后面加.text 然后可以把下一行删掉
         content = str(content)
         title = bs_r.find_all(&#39;h1&#39;, class_=&#39;Post-Title&#39;)[0].text
-        title_short = title[:7] #截取纯数字
+        title_short = title[:7]     #截取纯数字
         f = open(&#39;SourceCodes/{}.txt&#39;.format(title_short), &#39;w&#39;, encoding=&#39;utf-8&#39;)
         f.write(content)
         f.close()
@@ -488,7 +488,7 @@ def close():
     wb.close()
     driver.close()
     print(&#39;_______\n驱动已关闭\nExcel已关闭\n_______&#39;)
-    input(&#39;\n请输入回车结束爬虫&#39;) #不在pycharm运行时像暂时不结束脚本才加的，可删
+    input(&#39;\n请输入回车结束爬虫&#39;) #不在pycharm运行时想暂时不结束Console才加的，可删
 
 
 def main():
