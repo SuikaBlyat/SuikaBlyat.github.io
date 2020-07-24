@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="知乎专栏爬虫 2020.07.11, UM FIC15">
+    <meta name="keywords" content="知乎专栏爬虫 2020.07.11, suikablyat suika blyat">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
@@ -217,7 +217,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -342,6 +342,18 @@
                             <span class="chip bg-color">Beginner</span>
                         </a>
                         
+                        <a href="/tags/知乎专栏/" target="_blank">
+                            <span class="chip bg-color">知乎专栏</span>
+                        </a>
+                        
+                        <a href="/tags/爬虫/" target="_blank">
+                            <span class="chip bg-color">爬虫</span>
+                        </a>
+                        
+                        <a href="/tags/知乎/" target="_blank">
+                            <span class="chip bg-color">知乎</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -456,7 +468,7 @@ def crawler_list():
         article_url = article.find_all(&#39;a&#39;)[0][&#39;href&#39;]
         summary = article.find(&#39;p&#39;, class_=&#39;RichContent-inner&#39;).text
         vote = article.find(&#39;button&#39;, class_=&#39;Button VoteButton VoteButton--up&#39;)[&#39;aria-label&#39;]
-        vote = vote[2:]
+        vote = vote[2:]  #截取纯数字
         article_url_list.append(article_url) #添加到URL列表方便下一个函数爬取文章内容
         article_title_list.append(title) #回应开头那个多余的代码）
         line = [title, summary, article_url, vote]
@@ -475,7 +487,7 @@ def crawler_article():
         content = bs_r.find(class_=&#39;RichText ztext Post-RichText&#39;)   #需要纯文本的请在后面加.text 然后可以把下一行删掉
         content = str(content)
         title = bs_r.find_all(&#39;h1&#39;, class_=&#39;Post-Title&#39;)[0].text
-        title_short = title[:7]     #截取纯数字
+        title_short = title[:7]     #截取部分标题（标题过长无法建立txt文档）
         f = open(&#39;SourceCodes/{}.txt&#39;.format(title_short), &#39;w&#39;, encoding=&#39;utf-8&#39;)
         f.write(content)
         f.close()
@@ -543,7 +555,7 @@ main()</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="知乎专栏爬虫 2020.07.11">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="知乎专栏爬虫 2020.07.11">
                         
                         <span class="card-title">知乎专栏爬虫 2020.07.11</span>
                     </div>
@@ -582,6 +594,18 @@ main()</code></pre>
                         <span class="chip bg-color">Beginner</span>
                     </a>
                     
+                    <a href="/tags/知乎专栏/" target="_blank">
+                        <span class="chip bg-color">知乎专栏</span>
+                    </a>
+                    
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/知乎/" target="_blank">
+                        <span class="chip bg-color">知乎</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -597,7 +621,7 @@ main()</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="The Beginning of DDL Fighter">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="The Beginning of DDL Fighter">
                         
                         <span class="card-title">The Beginning of DDL Fighter</span>
                     </div>
